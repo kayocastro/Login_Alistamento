@@ -1,0 +1,19 @@
+<?php 
+	
+	session_start();
+
+	include_once '../model/class/Conn.class.php';
+	include_once '../model/class/Users.class.php';
+
+
+	$users = new Users();
+
+	$email = addslashes($_POST['email']);
+	$password = md5($_POST['password']);
+
+		if(isset($_POST['email']) && !empty($_POST['email'])){
+			$users->setLogged($email, $password);
+		}
+
+
+ ?>
